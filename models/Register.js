@@ -3,15 +3,17 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 //Set schema for login page
-var User = new Schema({
+var UserSchema = new Schema({
     username: {
-        type: String
+        type: String,
+        trim: true,
     },
     password: {
-        type: String
+        type: String, 
+        trim: true,
     }
 });
 
-User.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('User', UserSchema);
