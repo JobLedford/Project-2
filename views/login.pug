@@ -5,11 +5,7 @@ block content
         h1 Log In
         -data = data || {}
 
-        if errors
-            ul.my-errors
-            for error in errors
-                li= error.msg
-        form(action="." method="POST" class="login-form")
+        form(action="/login" method="POST" class="login-form")
             label(for="username") Username:
             input(
                 type="text"
@@ -30,6 +26,9 @@ block content
 
             input(
                 type="submit" 
-                value="Submit"
+                value="Log-In"
                 class="btn btn-lg btn-primary btn-block"
-            )
+            )       
+            if message   
+                each error in message
+                    p.alert.alert-danger #{error}

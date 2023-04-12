@@ -1,0 +1,26 @@
+nav {
+  font-size: 1.2em;
+  font-font-weight: bold;
+  float: right;
+}
+nav ul {
+  list-style-type: none;
+  margin: 20px;
+}
+nav ul li {
+  float: left;
+  margin: 0 5px 0 0;
+  display: inline;
+}
+nav ul li a {
+  text-decoration: none;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  color: blue;
+}
+
+/*# sourceMappingURL=nav.css.map */

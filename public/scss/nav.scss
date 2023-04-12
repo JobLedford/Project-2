@@ -1,0 +1,26 @@
+nav {
+    font: {
+        size: 1.2em;
+        font-weight: bold;
+    }
+    float: right;
+    ul {
+        list-style-type: none;
+        margin: 20px;
+        li {
+            float: left;
+            margin: 0 5px 0 0;
+            display: inline;
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+               }
+           }
+       }
+   }
+}
+h1 {
+    color: blue;
+}
+

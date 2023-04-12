@@ -3,105 +3,83 @@ const mongoose = require('mongoose');
 const path = require('path');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const User = require("../models/Register");
+const flash = require('connect-flash');
 const { check, validationResult } = require("express-validator");
-const User = require('../models/Register');
 const bodyParser = require("body-parser");
 const expressSession = require('express-session');
 const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-
+//initialize router
 const router = express.Router();
-
+//Create app with parsed info from app.js
 router.use(express.urlencoded({ extended: true }));
-
+//initialize express session
 router.use(require('express-session')({
     secret: "So Secretive",
     resave: false,
     saveUninitialized: false,
 }));
-
+//Call flash to enable error messages
+router.use(flash());
+//Start Passport
 router.use(passport.initialize());
 router.use(passport.session());
-
-passport.use(new LocalStrategy(User.authenticate()));
+//Serialize & Desrialize User
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 //ROUTES
 //Showing Home Page
 router.get('/', (req,res) => {
     res.render('home', { title:'Home Page' });
 });
-
-//Showing Secret Page
-router.get('/secret', isLoggedIn, (req,res) => {
-    res.render('secret');
-})
-
 //Showing Contact Page
 router.get('/contact', (req,res) => {
     res.render('contact', { title: 'Contact Us' });
 });
-
-//Showing Register Page
-router.get("/register", (req, res) => {
-  res.render("register");
-});
-//Handeling User Sign Up
-router.post('/register', (req,res) => {
-    User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
-        if (err) {
-            console.log(err);
-            return res.render('register');
-        }
-        passport.authenticate('local')(req,res,() => {
-            res.redirect('/secret');
-        });
-    });
-});
-
 //Showing LogIn Page
 router.get('/login', (req,res) => {
-    res.render('login');
+    res.render('login', { title: 'Log-In', message: req.flash('error') });
 })
-
 //LogIn Logic
 router.post('/login', passport.authenticate('local',{
     successRedirect: '/secret',
-    failureRedirect: '/login'
-}), (req,res) => {
+    failureRedirect: '/login',
+    failureFlash: true,
+}));
 
+passport.use(
+  new LocalStrategy(async function (username, password, done) {
+    try {
+      const user = await User.findOne({ username });
+      if (!user) {
+        return done(null, false, { message: "Incorrect username." });
+      }
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!passwordMatch) {
+        return done(null, false, { message: "Incorrect password." });
+      }
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
+//Showing SignUp Page
+router.get("/register", (req, res) => {
+  res.render("register", { title: 'Sign-Up' });
 });
-
-//Showing LogOut Page
-router.get('/logout', (req,res) => {
-    req.logout();
-    res.redirect("/");
-})
-
-//check isLoggedIn
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
-
-
-
-
-
-//Sign-up
-/*router.get('/register', (req,res) => {
-    res.render('register');
-})
-
+//SignUp Logic
 router.post(
   "/",
   [
-    check("username").isLength({ min: 1 }).withMessage("Please enter your username"),
-    check("password").isLength({ min: 1 }).withMessage("Please enter your password"),
+    check("username")
+      .isLength({ min: 1 })
+      .withMessage("Please enter a username"),
+    check("password")
+      .isLength({ min: 1 })
+      .withMessage("Please enter a password"),
   ],
   async (req, res) => {
     //console.log(req.body);
@@ -115,7 +93,7 @@ router.post(
       registration
         .save()
         .then(() => {
-          res.render("secret", { title: "Blog" });
+          res.render("Login", { title: "Log-In" });
         })
         .catch((err) => {
           console.log(err);
@@ -130,7 +108,22 @@ router.post(
     }
   }
 );
+//Showing LogOut Page
+/*router.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect("/");
+})
 */
-
+//Authenticated Logic
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
+//Showing Secret Page
+router.get("/secret", isAuthenticated, (req, res) => {
+  res.render("secret");
+});
 
 module.exports = router;
