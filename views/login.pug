@@ -3,32 +3,39 @@ extends layout
 block content 
 
         h1 Log In
+        
         -data = data || {}
+        .box
+            .row.align-items-center(style='height: 80vh;')
+                .mx-auto.col-10.col-md-8.col-lg-6
+                    form(action="/login" method="POST" class="forms")
+                        label(for="username") Username:
+                        input(
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            value=data.name
+                        )
 
-        form(action="/login" method="POST" class="login-form")
-            label(for="username") Username:
-            input(
-                type="text"
-                id="username"
-                name="username"
-                class="form-control"
-                value=data.name
-            )
+                        label(for="password") Password:
+                        input(
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            value=data.email
+                        )
 
-            label(for="password") Password:
-            input(
-                type="password"
-                id="password"
-                name="password"
-                class="form-control"
-                value=data.email
-            )
+                        a(href='#' class='forgot') Forgot Password?
+                        br
+                        a(href='#' class='forgot') Forgot Username? 
 
-            input(
-                type="submit" 
-                value="Log-In"
-                class="btn btn-lg btn-primary btn-block"
-            )       
-            if message   
-                each error in message
-                    p.alert.alert-danger #{error}
+                        input(
+                            type="submit" 
+                            value="Log-In"
+                            class="btn btn-lg btn-primary"
+                        )       
+                        if message   
+                            each error in message
+                                p.alert.alert-danger #{error}                

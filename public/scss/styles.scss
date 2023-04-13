@@ -1,6 +1,37 @@
 h1 {
     color: blue;
+    text-align: center;
+    margin-left: 400px;
+    position: relative;
+    top: 120px;
+    font-size: 4em;
+    text-decoration: underline
 }
-h3 {
-    color: green;
+.box{
+    justify-content: center;
+    border: 10px solid black;
+    margin-left: 200px;//100
+    margin-right: 200px;
+    .forms{
+        position: relative;
+        top: 40px;
+        label{
+            font-size: 2em;
+        }
+        input {
+            margin: 15px;
+        }
+        .forgot {
+            position: relative;
+            top:20px;
+            font-size: 1.3em;
+        }
+        .btn {
+            margin-top: 20px;
+            float: right;
+            position:relative;
+            top: 10px;
+        }
+    }
+    
 }

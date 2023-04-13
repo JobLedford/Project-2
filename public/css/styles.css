@@ -1,9 +1,39 @@
 h1 {
   color: blue;
+  text-align: center;
+  margin-left: 400px;
+  position: relative;
+  top: 120px;
+  font-size: 4em;
+  text-decoration: underline;
 }
 
-h3 {
-  color: green;
+.box {
+  justify-content: center;
+  border: 10px solid black;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.box .forms {
+  position: relative;
+  top: 40px;
+}
+.box .forms label {
+  font-size: 2em;
+}
+.box .forms input {
+  margin: 15px;
+}
+.box .forms .forgot {
+  position: relative;
+  top: 20px;
+  font-size: 1.3em;
+}
+.box .forms .btn {
+  margin-top: 20px;
+  float: right;
+  position: relative;
+  top: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

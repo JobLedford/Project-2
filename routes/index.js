@@ -123,7 +123,7 @@ function isAuthenticated(req, res, next) {
 }
 //Showing Secret Page
 router.get("/secret", isAuthenticated, (req, res) => {
-  res.render("secret");
+  res.render("secret", { url: req.url });
 });
 
 module.exports = router;
