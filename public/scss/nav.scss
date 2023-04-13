@@ -1,26 +1,78 @@
-nav {
-    font: {
-        size: 1.2em;
-        font-weight: bold;
-    }
-    float: right;
-    ul {
-        list-style-type: none;
-        margin: 20px;
-        li {
-            float: left;
-            margin: 0 5px 0 0;
-            display: inline;
-            a {
-                text-decoration: none;
-                &:hover {
-                    text-decoration: underline;
-               }
-           }
-       }
-   }
-}
-h1 {
-    color: blue;
-}
+@import 'colors.scss';
 
+nav {
+  font: {
+    size: 1.2em;
+    font-weight: bold;
+  }
+  float: right;
+  .droptog {
+    list-style-type: none;
+    font-size: 1.2em;
+    color: $Orange;
+    //color: $lime;
+    margin-top:10px;
+  }
+  .menu {
+    list-style-type: none;
+    text-align: none;
+    margin-right: 20px;
+  }
+  .dropmen {
+    text-align: center;
+    top: 70px;
+    right: 10px;
+    float: right;
+    background-color: $FG2;
+    //background-color:$DFG;
+    border: none;
+    li {
+      border: solid 1px $Orange;
+      //border: solid 1px $lime;
+      list-style: none;
+      font-size: 1.2em;
+      background-color: $lime2;
+      //background-color: $FG;
+      a {
+        color: $FG2;
+        //color: $lime;
+        &:hover {
+            color: $FG2;
+            //color: $FG;
+        }
+      }
+    }
+    li:hover {
+      background-color: $Orange;
+      //background-color: $lime;
+      color: $lime2;
+      //color: $FG;
+    }
+  }
+  ul.Nsec {
+    list-style-type: none;
+    margin: 20px;
+    li {
+      float: left;
+      margin: 0 5px 0 0;
+      display: inline;
+      color: $Orange;
+      //color: $lime;
+      a {
+        text-decoration: none;
+        color: $Orange;
+        //color: $lime;
+        i {
+            position: absolute;
+            right: 1300px;
+            font-size: 1.5em;
+        }
+        &:hover {
+          text-decoration: underline;
+          color: $lime2;
+          //color:$FG
+        }
+      }
+    }
+  }
+}

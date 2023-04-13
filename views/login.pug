@@ -2,7 +2,7 @@ extends layout
 
 block content 
 
-        h1 Log In
+        h1.FormHead Log In
         
         -data = data || {}
         .box
@@ -34,7 +34,7 @@ block content
                         input(
                             type="submit" 
                             value="Log-In"
-                            class="btn btn-lg btn-primary"
+                            class="btn btn-lg"
                         )       
                         if message   
                             each error in message

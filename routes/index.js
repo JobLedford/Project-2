@@ -106,14 +106,13 @@ router.post(
         data: req.body,
       });
     }
-  }
-);
+});
 //Showing LogOut Page
-/*router.get('/logout', (req,res) => {
-    req.logout();
-    res.redirect("/");
-})
-*/
+router.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
+
 //Authenticated Logic
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

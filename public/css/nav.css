@@ -3,24 +3,63 @@ nav {
   font-font-weight: bold;
   float: right;
 }
-nav ul {
+nav .droptog {
+  list-style-type: none;
+  font-size: 1.2em;
+  color: #F6A21E;
+  margin-top: 10px;
+}
+nav .menu {
+  list-style-type: none;
+  text-align: none;
+  margin-right: 20px;
+}
+nav .dropmen {
+  text-align: center;
+  top: 70px;
+  right: 10px;
+  float: right;
+  background-color: #144d2e;
+  border: none;
+}
+nav .dropmen li {
+  border: solid 1px #F6A21E;
+  list-style: none;
+  font-size: 1.2em;
+  background-color: #7A871E;
+}
+nav .dropmen li a {
+  color: #144d2e;
+}
+nav .dropmen li a:hover {
+  color: #144d2e;
+}
+nav .dropmen li:hover {
+  background-color: #F6A21E;
+  color: #7A871E;
+}
+nav ul.Nsec {
   list-style-type: none;
   margin: 20px;
 }
-nav ul li {
+nav ul.Nsec li {
   float: left;
   margin: 0 5px 0 0;
   display: inline;
+  color: #F6A21E;
 }
-nav ul li a {
+nav ul.Nsec li a {
   text-decoration: none;
+  color: #F6A21E;
 }
-nav ul li a:hover {
+nav ul.Nsec li a i {
+  position: absolute;
+  right: 1300px;
+  font-size: 1.5em;
+}
+nav ul.Nsec li a:hover {
   text-decoration: underline;
-}
-
-h1 {
-  color: blue;
+  color: #7A871E;
 }
 
 /*# sourceMappingURL=nav.css.map */

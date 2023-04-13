@@ -1,37 +1,114 @@
-h1 {
-    color: blue;
+@import "colors.scss";
+
+* {
+    background-color: $FG2;
+    //background-color: $DFG;
+}
+.FormHead {
+    color: $Orange;
+    //color: $lime;
     text-align: center;
     margin-left: 400px;
     position: relative;
-    top: 120px;
+    top: 100px;
     font-size: 4em;
-    text-decoration: underline
 }
 .box{
     justify-content: center;
-    border: 10px solid black;
-    margin-left: 200px;//100
+    border: 10px solid $Orange;
+    //border: 10px solid $lime;
+    margin-left: 200px;
     margin-right: 200px;
+    display:block;
     .forms{
         position: relative;
-        top: 40px;
+        top: 20px;
         label{
             font-size: 2em;
+            color: $Orange;
+            //color: $lime;
         }
         input {
-            margin: 15px;
+            margin: 5px;
+            color: $Orange;
+            //color: $lime;
         }
+        .form-control {
+            background-color: $lime2;    
+            //background-color: $FG;
+            }
         .forgot {
             position: relative;
             top:20px;
             font-size: 1.3em;
+            color: $Orange;
+            //color: $lime;
+            &:hover {
+                color:$lime2;
+                //color:$FG;
+            }
         }
         .btn {
             margin-top: 20px;
             float: right;
             position:relative;
-            top: 10px;
+            top: 5px;
+            background-color: $Orange;
+            //background-color: $lime;
+            color: $FG2;
+            //color: $DFG;
+            &:hover {
+                background-color: $FG2;
+                //background-color: $FG;
+                color: $Orange;
+                //color: $lime;
+                border: 1px solid $Orange;
+            }
         }
     }
-    
+}
+h1.logo {
+       text-align: left;
+       margin-left: 20px;
+       margin-top: 15px;
+       color: $Orange;
+       //color: $lime;
+    }
+p {
+    color:$Orange;
+    //color: $lime;
+    font-size: 1.2em;
+    font-weight: bolder;
+    position: absolute;
+    left: 200px;
+    top: 30px;
+}
+.search{
+    width: 60%;
+    position: absolute;
+    left: 280px;
+    top: 25px;
+    #search {
+        background-color: $lime2;
+        //background-color:$FG;
+        color: $Orange;
+        //color: $lime;
+    }
+    #Sbtn {
+        color: $Orange;
+        //color: $lime;
+        position: absolute;
+        left: 830px;
+        top: -8px;
+        border: 2px solid $Orange;
+        width:18%;
+        //border: 2px solid $lime;
+        &:hover {
+            color: $FG2;
+            //color: $FG;
+            background-color: $Orange;
+            //background-color: $lime;
+            border: 2px solid $lime2;
+        }
+    }
 }
