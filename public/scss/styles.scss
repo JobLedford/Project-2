@@ -1,114 +1,329 @@
 @import "colors.scss";
 
 * {
-    background-color: $FG2;
-    //background-color: $DFG;
+  background-color: $FG2;
+  //background-color: $DFG;
 }
 .FormHead {
-    color: $Orange;
-    //color: $lime;
-    text-align: center;
-    margin-left: 400px;
-    position: relative;
-    top: 100px;
-    font-size: 4em;
+  color: $Orange;
+  //color: $lime;
+  text-align: center;
+  margin-left: 400px;
+  position: relative;
+  top: 100px;
+  font-size: 4em;
 }
-.box{
-    justify-content: center;
-    border: 10px solid $Orange;
-    //border: 10px solid $lime;
-    margin-left: 200px;
-    margin-right: 200px;
-    display:block;
-    .forms{
-        position: relative;
-        top: 20px;
-        label{
-            font-size: 2em;
-            color: $Orange;
-            //color: $lime;
-        }
-        input {
-            margin: 5px;
-            color: $Orange;
-            //color: $lime;
-        }
-        .form-control {
-            background-color: $lime2;    
-            //background-color: $FG;
-            }
-        .forgot {
-            position: relative;
-            top:20px;
-            font-size: 1.3em;
-            color: $Orange;
-            //color: $lime;
-            &:hover {
-                color:$lime2;
-                //color:$FG;
-            }
-        }
-        .btn {
-            margin-top: 20px;
-            float: right;
-            position:relative;
-            top: 5px;
-            background-color: $Orange;
-            //background-color: $lime;
-            color: $FG2;
-            //color: $DFG;
-            &:hover {
-                background-color: $FG2;
-                //background-color: $FG;
-                color: $Orange;
-                //color: $lime;
-                border: 1px solid $Orange;
-            }
-        }
+.box {
+  justify-content: center;
+  border: 10px solid $Orange;
+  //border: 10px solid $lime;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: block;
+  .forms {
+    position: relative;
+    top: 20px;
+    label {
+      font-size: 2em;
+      color: $Orange;
+      //color: $lime;
     }
+    input {
+      margin: 5px;
+      color: $Orange;
+      //color: $lime;
+    }
+    .form-control {
+      background-color: $lime2;
+      //background-color: $FG;
+    }
+    .forgot {
+      position: relative;
+      top: 20px;
+      font-size: 1.3em;
+      color: $Orange;
+      //color: $lime;
+      &:hover {
+        color: $lime2;
+        //color:$FG;
+      }
+    }
+    .btn {
+      margin-top: 20px;
+      float: right;
+      position: relative;
+      top: 5px;
+      background-color: $Orange;
+      //background-color: $lime;
+      color: $FG2;
+      //color: $DFG;
+      &:hover {
+        background-color: $FG2;
+        //background-color: $FG;
+        color: $Orange;
+        //color: $lime;
+        border: 1px solid $Orange;
+      }
+    }
+  }
 }
 h1.logo {
-       text-align: left;
-       margin-left: 20px;
-       margin-top: 15px;
-       color: $Orange;
-       //color: $lime;
-    }
-p {
-    color:$Orange;
-    //color: $lime;
-    font-size: 1.2em;
-    font-weight: bolder;
-    position: absolute;
-    left: 200px;
-    top: 30px;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 15px;
+  color: $Orange;
+  //color: $lime;
 }
-.search{
-    width: 60%;
+p.fsearch {
+  color: $Orange;
+  //color: $lime;
+  font-size: 1.2em;
+  font-weight: bolder;
+  position: absolute;
+  left: 200px;
+  top: 30px;
+}
+.search {
+  width: 55%;
+  position: absolute;
+  left: 340px;
+  top: 25px;
+  #search {
+    background-color: $lime2;
+    //background-color:$FG;
+    color: $Orange;
+    //color: $lime;
+  }
+  #Sbtn {
+    color: $Orange;
+    //color: $lime;
     position: absolute;
-    left: 280px;
-    top: 25px;
-    #search {
-        background-color: $lime2;
-        //background-color:$FG;
-        color: $Orange;
-        //color: $lime;
+    left: 770px;
+    top: -8px;
+    border: 2px solid $Orange;
+    width: 18%;
+    //border: 2px solid $lime;
+    &:hover {
+      color: $FG2;
+      //color: $FG;
+      background-color: $Orange;
+      //background-color: $lime;
+      border: 2px solid $lime2;
     }
-    #Sbtn {
-        color: $Orange;
-        //color: $lime;
-        position: absolute;
-        left: 830px;
-        top: -8px;
-        border: 2px solid $Orange;
-        width:18%;
-        //border: 2px solid $lime;
-        &:hover {
-            color: $FG2;
-            //color: $FG;
-            background-color: $Orange;
-            //background-color: $lime;
-            border: 2px solid $lime2;
-        }
+  }
+}
+hr {
+  height: 5px;
+  border-width: 0;
+  background-color: $Orange;
+  width: 100%;
+}
+.PFP {
+  position: absolute;
+  top: 84px;
+  margin-left: 5px;
+  border: 5px solid $Orange;
+}
+.nameh {
+  color: $Orange;
+  position: absolute;
+  left: 285px;
+  top: 90px;
+}
+.name {
+  color: $lime2;
+  font-size: 1.4em;
+  position: absolute;
+  left: 285px;
+  top: 128px;
+}
+.favph {
+  color: $Orange;
+  position: absolute;
+  left: 285px;
+  top: 160px;
+}
+.favp {
+  color: $lime2;
+  font-size: 1.4em;
+  position: absolute;
+  left: 285px;
+  top: 197px;
+}
+.bio {
+  color: $Orange;
+  position: absolute;
+  top: 270px;
+  margin-left: 5px;
+}
+.biop {
+  color: $lime2;
+  font-size: 1.4em;
+  position: absolute;
+  top: 308px;
+  margin-left: 5px;
+}
+.PO {
+  color: $Orange;
+  position: absolute;
+  top: 410px;
+  margin-left: 5px;
+}
+.container.ownedplants {
+  width: 35%;
+  position: absolute;
+  top: 455px;
+  margin-left: 5px;
+  .imagetiles div.col-md-3 {
+    padding: 0;
+  }
+  img.img-responsive.owned {
+    object-fit: cover;
+    width: 100%;
+    height: 180px;
+    border: 3px solid $lime2;
+  }
+}
+.vl {
+  position: absolute;
+  left: 488px;
+  top: 84px;
+  border-left: 7px solid $Orange;
+  height: 565px;
+}
+.col-lg img {
+  object-fit: fill;
+  position: absolute;
+  top: -10px;
+  left: 500px;
+  height: 535px;
+  border: 3px solid $lime2;
+}
+.vl2 {
+  position: absolute;
+  left: 936px;
+  top: 84px;
+  border-left: 7px solid $Orange;
+  height: 565px;
+}
+h2.notif {
+    color: $Orange;
+    position: absolute;
+    left: 950px;
+    top: 90px;
+}
+hr.two{
+    width:30%;
+    position: absolute;
+    left: 950px;
+    top:108px;
+}
+ul.notifications {
+    font-size: 1.4em;
+    color: $Orange;
+    position: absolute;
+    left: 950px;
+    top: 130px;
+    li {
+        color: $lime2;
+    }
+}
+h2.inbox { 
+    color: $Orange;
+    position: absolute;
+    left: 950px;
+    top: 350px;
+}
+hr.three {
+    width:30%;
+    position: absolute;
+    left: 950px;
+    top:368px;
+}
+.convo1 {
+    color: $lime2;
+    position: absolute;
+    left: 960px;
+    top: 392px;
+    padding: 10px;
+    border: 2px solid black;
+    width: 25%;
+    i {
+        position: relative;
+        top: 15px;
+        margin: 5px;
+        padding: 5px;
+        float: left;
+    }
+    span {
+        position: relative;
+        left: 10px;
+        float: left;
+    }
+    p {
+        position: relative;
+        top: 5px;
+        left: 55px;
+        margin-right: 0;
+        padding-right: 0;
+        float:left;
+    }
+}
+.convo2 {
+    color: $lime2;
+    position: absolute;
+    left: 960px;
+    top: 478px;
+    padding: 10px;
+    border: 2px solid black;
+    width: 25%;
+    i {
+        position: relative;
+        top: 15px;
+        margin: 5px;
+        padding: 5px;
+        float: left;
+    }
+    span {
+        position: relative;
+        left: 10px;
+        float: left;
+    }
+    p {
+        position: relative;
+        top: 5px;
+        left: 55px;
+        margin-right: 0;
+        padding-right: 0;
+        float:left;
+    }
+}
+.convo3 {
+    color: $lime2;
+    position: absolute;
+    left: 960px;
+    top: 560px;
+    padding: 15px;
+    border: 2px solid black;
+    width: 25%;
+    i {
+        position: relative;
+        top: 15px;
+        margin: 5px;
+        padding: 5px;
+        float: left;
+    }
+    span {
+        position: relative;
+        left: 5px;
+        float: left;
+    }
+    p {
+        position: relative;
+        top: 25px;
+        left: -43px;
+        margin-right: 0;
+        padding-right: 0;
+        float:left;
     }
 }

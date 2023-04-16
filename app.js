@@ -8,6 +8,8 @@ const path = require("path");
 const app = express();
 //tell the app to include files from public folder
 app.use(express.static("public"));
+//tell app to use photos folder
+app.use('/photos', express.static(process.cwd() + '/photos'));
 //Set template directory to pug
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

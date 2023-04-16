@@ -10,38 +10,76 @@ const bodyParser = require("body-parser");
 const expressSession = require('express-session');
 const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
+const mongoSanitize = require("express-mongo-sanitize"),
+      rateLimit = require("express-rate-limit"),
+      xss = require("xss-clean"),
+      helmet = require("helmet");
 
 //initialize router
 const router = express.Router();
+
 //Create app with parsed info from app.js
 router.use(express.urlencoded({ extended: true }));
+
 //initialize express session
-router.use(require('express-session')({
+router.use(expressSession({
     secret: "So Secretive",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+      maxAge: 60000,
+    }
 }));
+
 //Call flash to enable error messages
 router.use(flash());
+
 //Start Passport
 router.use(passport.initialize());
 router.use(passport.session());
+
 //Serialize & Desrialize User
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
+//////////////////////////////
+//////////Security //////////
+router.use(mongoSanitize());
+
+const limit = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests'
+});
+
+router.use('/routename', limit);
+router.use(express.json({ limit:'10kb' }));
+router.use(xss());
+router.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
 //ROUTES
 //Showing Home Page
 router.get('/', (req,res) => {
     res.render('home', { title:'Home Page' });
 });
+
 //Showing Contact Page
 router.get('/contact', (req,res) => {
     res.render('contact', { title: 'Contact Us' });
 });
+
 //Showing LogIn Page
 router.get('/login', (req,res) => {
-    res.render('login', { title: 'Log-In', message: req.flash('error') });
+    res.render('login', { title: 'Log-In', message: req.flash('error')});
 })
+
 //LogIn Logic
 router.post('/login', passport.authenticate('local',{
     successRedirect: '/secret',
@@ -66,10 +104,12 @@ passport.use(
     }
   })
 );
+
 //Showing SignUp Page
 router.get("/register", (req, res) => {
   res.render("register", { title: 'Sign-Up' });
 });
+
 //SignUp Logic
 router.post(
   "/",
@@ -107,6 +147,7 @@ router.post(
       });
     }
 });
+
 //Showing LogOut Page
 router.get("/logout", (req, res, next) => {
   req.logout();
@@ -120,6 +161,7 @@ function isAuthenticated(req, res, next) {
   }
   res.redirect("/login");
 }
+
 //Showing Secret Page
 router.get("/secret", isAuthenticated, (req, res) => {
   res.render("secret", { url: req.url });

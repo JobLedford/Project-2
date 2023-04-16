@@ -26,7 +26,7 @@ nav .dropmen li {
   border: solid 1px #F6A21E;
   list-style: none;
   font-size: 1.2em;
-  background-color: #7A871E;
+  background-color: #85921f;
 }
 nav .dropmen li a {
   color: #144d2e;
@@ -36,7 +36,7 @@ nav .dropmen li a:hover {
 }
 nav .dropmen li:hover {
   background-color: #F6A21E;
-  color: #7A871E;
+  color: #85921f;
 }
 nav ul.Nsec {
   list-style-type: none;
@@ -59,7 +59,7 @@ nav ul.Nsec li a i {
 }
 nav ul.Nsec li a:hover {
   text-decoration: underline;
-  color: #7A871E;
+  color: #85921f;
 }
 
 /*# sourceMappingURL=nav.css.map */
