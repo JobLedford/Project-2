@@ -4,6 +4,7 @@ const User = require('./models/Register');
 const routes = require('./routes/index');
 const path = require("path");
 
+
 //Declare the app
 const app = express();
 //tell the app to include files from public folder

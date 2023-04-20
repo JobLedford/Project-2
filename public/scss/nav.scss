@@ -12,6 +12,10 @@ nav {
     color: $Orange;
     //color: $lime;
     margin-top:10px;
+    @media (max-width: 1200px) {
+      position: relative;
+      left: 100px;
+  }
   }
   .menu {
     list-style-type: none;

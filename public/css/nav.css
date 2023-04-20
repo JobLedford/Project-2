@@ -9,6 +9,12 @@ nav .droptog {
   color: #F6A21E;
   margin-top: 10px;
 }
+@media (max-width: 1200px) {
+  nav .droptog {
+    position: relative;
+    left: 100px;
+  }
+}
 nav .menu {
   list-style-type: none;
   text-align: none;

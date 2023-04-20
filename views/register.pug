@@ -34,3 +34,20 @@ block content
                             value="Sign-up"
                             class="btn btn-lg"
                         )
+//-    #app
+        p {{ message }}
+        button(@click="count++") Click me! You clicked {{ count }} times.
+    
+    script(src="https://unpkg.com/vue@next")                                
+    script.
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello, Vue!',
+                    count:0
+                }
+            }
+        })
+      
+    //-Mount the Vue instance to the DOM
+    app.mount('#app')  

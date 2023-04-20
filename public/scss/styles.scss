@@ -103,6 +103,9 @@ p.fsearch {
     border: 2px solid $Orange;
     width: 18%;
     //border: 2px solid $lime;
+    @media (max-width: 1200px) {
+      left: 675px;
+  }
     &:hover {
       color: $FG2;
       //color: $FG;
@@ -226,6 +229,9 @@ ul.notifications {
     top: 130px;
     li {
         color: $lime2;
+        @media (max-width: 1200px) {
+          font-size: 0.8em;
+    }
     }
 }
 h2.inbox { 
@@ -325,5 +331,59 @@ hr.three {
         margin-right: 0;
         padding-right: 0;
         float:left;
+        @media (max-width: 1200px) {
+          left:46px;
+          top: 5px;
     }
+    }
+}
+.card {
+  width: 75%;
+  height: 75%;
+  border: 5px solid $lime2;
+  position: absolute;
+  left: 160px;
+  top: 110px;
+  .card-title {
+    position: relative;
+    bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 3em;
+    color: $Orange;
+  }
+  .chr {
+    background-color: $lime2;
+  }
+  .card-subtitle.mb-2 {
+    text-align: center;
+    font-size: 1.69em;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    color: $Orange;
+    font-style: italic;
+    font-weight: lighter;
+  }
+  .card-text {
+    text-align: center;
+    font-size: 1.59em;
+    padding-bottom: 20px;
+    position: relative;
+    top: 5px;
+    color: $Orange;
+  }
+  .link-group {
+    text-align: center;
+    font-size: 1.6em;
+    position: relative;
+    top: 5px;
+    a {
+      color: $Orange;
+      &:hover {
+        color: $lime2;
+        text-decoration: underline;
+      }
+    }
+  }
 }

@@ -90,6 +90,11 @@ p.fsearch {
   border: 2px solid #F6A21E;
   width: 18%;
 }
+@media (max-width: 1200px) {
+  .search #Sbtn {
+    left: 675px;
+  }
+}
 .search #Sbtn:hover {
   color: #144d2e;
   background-color: #F6A21E;
@@ -227,6 +232,11 @@ ul.notifications {
 ul.notifications li {
   color: #85921f;
 }
+@media (max-width: 1200px) {
+  ul.notifications li {
+    font-size: 0.8em;
+  }
+}
 
 h2.inbox {
   color: #F6A21E;
@@ -330,6 +340,63 @@ hr.three {
   margin-right: 0;
   padding-right: 0;
   float: left;
+}
+@media (max-width: 1200px) {
+  .convo3 p {
+    left: 46px;
+    top: 5px;
+  }
+}
+
+.card {
+  width: 75%;
+  height: 75%;
+  border: 5px solid #85921f;
+  position: absolute;
+  left: 160px;
+  top: 110px;
+}
+.card .card-title {
+  position: relative;
+  bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 3em;
+  color: #F6A21E;
+}
+.card .chr {
+  background-color: #85921f;
+}
+.card .card-subtitle.mb-2 {
+  text-align: center;
+  font-size: 1.69em;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  color: #F6A21E;
+  font-style: italic;
+  font-weight: lighter;
+}
+.card .card-text {
+  text-align: center;
+  font-size: 1.59em;
+  padding-bottom: 20px;
+  position: relative;
+  top: 5px;
+  color: #F6A21E;
+}
+.card .link-group {
+  text-align: center;
+  font-size: 1.6em;
+  position: relative;
+  top: 5px;
+}
+.card .link-group a {
+  color: #F6A21E;
+}
+.card .link-group a:hover {
+  color: #85921f;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=styles.css.map */

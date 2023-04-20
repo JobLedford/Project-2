@@ -11,7 +11,7 @@ var UserSchema = new Schema({
     password: {
         type: String, 
         trim: true,
-    }
+    },
 });
 
 UserSchema.plugin(passportLocalMongoose);

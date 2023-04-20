@@ -47,7 +47,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //////////////////////////////
 //////////Security //////////
-router.use(mongoSanitize());
+/*router.use(mongoSanitize());
 
 const limit = rateLimit({
   max: 100,
@@ -63,6 +63,7 @@ router.use(
     contentSecurityPolicy: false,
   })
 );
+*/
 
 //ROUTES
 //Showing Home Page
