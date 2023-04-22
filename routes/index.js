@@ -48,7 +48,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //////////////////////////////
 //////////Security //////////
-/*router.use(mongoSanitize());
+router.use(mongoSanitize());
 
 const limit = rateLimit({
   max: 100,
@@ -64,7 +64,7 @@ router.use(
     contentSecurityPolicy: false,
   })
 );
-*/
+
 
 //ROUTES
 //Showing Home Page
@@ -77,7 +77,8 @@ router.get('/contact', (req,res) => {
     res.render('contact', { title: 'Contact Us' });
 });
 
-router.post(
+//DOESN'T WORK WITH OTHER POSTS FOR SOME REASON
+/*router.post(
   "/",
   [
     check("Email").isLength({ min: 1 }).withMessage("Please enter an Email"),
@@ -89,9 +90,12 @@ router.post(
     //console.log(req.body);
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-      const message = new Contact(req.body);
-      message
-        .save()
+      const contact = new Contact({
+        email: req.body.email,
+        message: req.body.message,
+      });
+      contact
+      .save()
         .then(() => {
           res.render("home", { title: "Home Page" });
         })
@@ -108,6 +112,7 @@ router.post(
     }
   }
 );
+*/
 
 //Showing LogIn Page
 router.get('/login', (req,res) => {
