@@ -2,6 +2,38 @@ extends layout
 
 block content 
 
-    br 
-    br
-    h1 Contact page
+    -data = data || {}
+    .contact
+        .box 
+            .row.align-items-center(style='height: 80vh;')
+                h1.cont Send us your E-mail and your favorite plant and we will reach out to you!
+                hr.contactl
+                .mx-auto.col-10.col-md-8.col-lg-6
+                    form(action="." method="POST" class="forms")
+                        label(for="username") E-mail:
+                        input(
+                            type="text"
+                            id="Email"
+                            name="Email"
+                            class="form-control"
+                            value=data.email
+                        )
+
+                        label(for="message") Favorite Plant:
+                        input(
+                            type="text"
+                            id="message"
+                            name="message"
+                            class="form-control"
+                            value=data.message
+                        )
+
+                        input(
+                            type="submit" 
+                            value="Sign-up"
+                            class="btn btn-lg"
+                        )
+                        if errors
+                            ul.my-errors
+                                for error in errors
+                                    li= error.msg

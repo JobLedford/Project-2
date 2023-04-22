@@ -399,4 +399,32 @@ hr.three {
   text-decoration: underline;
 }
 
+.contact {
+  position: relative;
+  top: 90px;
+}
+.contact .box {
+  border: 10px solid #85921f;
+}
+.contact .box .forms {
+  position: relative;
+  right: 80px;
+  top: -35px;
+  width: 175%;
+}
+.contact .box .cont {
+  color: #F6A21E;
+  text-align: center;
+  font-size: 1.8em;
+  position: relative;
+  top: 10px;
+  left: 65px;
+}
+.contact .box .contactl {
+  background-color: #85921f;
+  position: relative;
+  bottom: 15px;
+  left: 55px;
+}
+
 /*# sourceMappingURL=styles.css.map */

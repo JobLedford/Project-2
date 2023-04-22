@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const Contact = require("../models/Contact");
 const User = require("../models/Register");
 const flash = require('connect-flash');
 const { check, validationResult } = require("express-validator");
@@ -76,6 +77,38 @@ router.get('/contact', (req,res) => {
     res.render('contact', { title: 'Contact Us' });
 });
 
+router.post(
+  "/",
+  [
+    check("Email").isLength({ min: 1 }).withMessage("Please enter an Email"),
+    check("message")
+      .isLength({ min: 1 })
+      .withMessage("Please enter a favorite plant"),
+  ],
+  async (req, res) => {
+    //console.log(req.body);
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const message = new Contact(req.body);
+      message
+        .save()
+        .then(() => {
+          res.render("home", { title: "Home Page" });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.send("Sorry! Something went wrong.");
+        });
+    } else {
+      res.render("contact", {
+        title: "Contact Us",
+        errors: errors.array(),
+        data: req.body,
+      });
+    }
+  }
+);
+
 //Showing LogIn Page
 router.get('/login', (req,res) => {
     res.render('login', { title: 'Log-In', message: req.flash('error')});
@@ -129,7 +162,7 @@ router.post(
       const registration = new User(req.body);
       //generate salt to hash password
       const salt = await bcrypt.genSalt(10);
-      //set user passwrod to hashed password
+      //set user password to hashed password
       registration.password = await bcrypt.hash(registration.password, salt);
       registration
         .save()

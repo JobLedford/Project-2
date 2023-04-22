@@ -387,3 +387,31 @@ hr.three {
     }
   }
 }
+.contact {
+  position: relative;
+  top: 90px;
+  .box {
+    border: 10px solid $lime2;
+    .forms {
+    position: relative;
+    right: 80px;
+    top: -35px;
+    width: 175%;
+  }
+  .cont {
+    color: $Orange;
+    text-align: center;
+    font-size: 1.8em;
+    position: relative;
+    top: 10px;
+    left: 65px;
+  }
+  .contactl {
+    background-color: $lime2;
+    position: relative;
+    bottom: 15px;
+    left: 55px;
+  }
+  }
+  
+}
